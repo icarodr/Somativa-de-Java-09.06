@@ -21,6 +21,5 @@ public class Produto {
     public void listarProdutos(){
         // this.nome = nome;
         // this.quantidade = quantidade;
-
     }
 }
