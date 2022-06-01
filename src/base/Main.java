@@ -1,6 +1,5 @@
 package base;
 import java.io.IOException;
-
 import javax.swing.JOptionPane;
 
 public class Main {
