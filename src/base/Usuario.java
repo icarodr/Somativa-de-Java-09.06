@@ -14,8 +14,8 @@ public class Usuario {
 
     }
     public void validacaoUsuario(){
-        this.nome = nome;
-        this.senha = senha;
+        // this.nome = nome;
+        // this.senha = senha;
 
         if(nome.equalsIgnoreCase("icaro") && senha == 1234){
             JOptionPane.showMessageDialog(null,"Login Efetuado com Sucesso!");
