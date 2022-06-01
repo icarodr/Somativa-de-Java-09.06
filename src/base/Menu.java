@@ -5,7 +5,7 @@ public class Menu {
     Produto produtoMenu = new Produto();
 
     public void menuUsuario(){
-        int opUser = Integer.parseInt(JOptionPane.showInputDialog(null,"Escolha o que deseja realizar: \n(1) - Cadastrar Produto \n(2) - Remover Produto \n(3) - Listar Produto \n(4) - Alterar Quantidade"));
+        int opUser = Integer.parseInt(JOptionPane.showInputDialog(null,"Escolha o que deseja realizar: \n(1) - Cadastrar Produto \n(2) - Remover Produto \n(3) - Listar Produto \n(4) - Alterar Quantidade\n"));
 
         switch(opUser) {
             case 1:
