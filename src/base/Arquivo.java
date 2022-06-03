@@ -16,4 +16,3 @@ public class Arquivo {
         } catch (Exception erro) {}
     }
 }
-   
