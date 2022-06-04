@@ -1,5 +1,9 @@
 package base;
 import javax.swing.*;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Usuario {
@@ -25,8 +29,7 @@ public class Usuario {
             validacaoUsuario();
         }
     }
-    public void lerTxt(String nome, int senha){
+    public void cadastrarUsuario(String nome, int senha){
         
-
     }
 }
