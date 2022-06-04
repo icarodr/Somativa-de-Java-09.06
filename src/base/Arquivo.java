@@ -13,6 +13,6 @@ public class Arquivo {
         try {
                 Files.write(caminho, textoEmByte);
                 
-        } catch (Exception erro) {}
+        } catch (Exception e) {}
     }
 }

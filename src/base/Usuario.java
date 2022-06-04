@@ -1,5 +1,6 @@
 package base;
 import javax.swing.*;
+import java.util.*;
 
 public class Usuario {
 
@@ -14,9 +15,7 @@ public class Usuario {
 
     }
     public void validacaoUsuario(){
-        this.nome = nome;
-        this.senha = senha;
-
+    
         if(nome.equalsIgnoreCase("icaro") && senha == 1234){
             JOptionPane.showMessageDialog(null,"Login Efetuado com Sucesso!");
             menu.menuUsuario();
@@ -25,5 +24,9 @@ public class Usuario {
             loginUsuario();
             validacaoUsuario();
         }
+    }
+    public void lerTxt(String nome, int senha){
+        
+
     }
 }
