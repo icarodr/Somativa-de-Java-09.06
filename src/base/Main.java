@@ -8,6 +8,5 @@ public class Main {
         JOptionPane.showMessageDialog(null,"SOMATIVA DE JAVA!");
         Usuario usuario = new Usuario();
         usuario.opcaoUsuario();
-        
     }
 }
