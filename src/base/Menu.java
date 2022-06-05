@@ -1,10 +1,12 @@
 package base;
+import java.io.IOException;
+
 import javax.swing.*;
 
 public class Menu {
     Produto produtoMenu = new Produto();
 
-    public void menuUsuario(){
+    public void menuUsuario() throws IOException{
         
         int opUser = Integer.parseInt(JOptionPane.showInputDialog(null,"Escolha o que deseja realizar: \n(1) - Cadastrar Produto \n(2) - Remover Produto \n(3) - Listar Produto \n(4) - Alterar Quantidade\n\n"));
         switch(opUser) {
