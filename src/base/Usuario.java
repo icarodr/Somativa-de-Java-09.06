@@ -1,25 +1,42 @@
 package base;
 import javax.swing.*;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.*;
 
 public class Usuario {
-//    Produto produto = new Produto();
+
     Menu menu = new Menu();
+    List<String> listaUser = new ArrayList<String>();
+
     public String nome;
-    public int senha;
+    public String senha;
+
+    public void opcaoUsuario(){
+        Usuario usuarioCad = new Usuario();
+        int op2 = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite a Opção: \n(1) - Cadastrar Novo Usuário \n(2) - Fazer Login \n\n"));
+
+        switch(op2) {
+            case 1:
+                usuarioCad.cadastrarUsuario();;
+                break;
+
+            case 2:
+                usuarioCad.loginUsuario();
+                break;
+
+            default:
+                break;
+        }
+    }
 
     public void loginUsuario(){
         this.nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
-        this.senha = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira a senha: "));
-
+        this.senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
     }
+
     public void validacaoUsuario(){
     
-        if(nome.equalsIgnoreCase("icaro") && senha == 1234){
+        if(nome.equalsIgnoreCase("icaro") && senha == "1234"){
             JOptionPane.showMessageDialog(null,"Login Efetuado com Sucesso!");
             menu.menuUsuario();
         }else{
@@ -28,7 +45,11 @@ public class Usuario {
             validacaoUsuario();
         }
     }
-    public void cadastrarUsuario(String nome, int senha){
-        
+    public void cadastrarUsuario(){
+
+        listaUser.add(nome);
+        listaUser.add(senha);
+        JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso!");
+        System.out.println(listaUser);
     }
 }
