@@ -20,7 +20,7 @@ public class Menu {
                 break;
             case 4:
                 produtoMenu.alteraQuantidade();
-            default:
+            if(opUser != 1 || opUser != 2 || opUser != 3 || opUser !=4)
                 JOptionPane.showMessageDialog(null,"Sem valor especifícado!");
         }
     }
