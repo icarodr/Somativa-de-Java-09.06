@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Usuario {
-
 //    Produto produto = new Produto();
     Menu menu = new Menu();
     public String nome;
