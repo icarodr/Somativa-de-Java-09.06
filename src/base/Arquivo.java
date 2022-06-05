@@ -1,4 +1,5 @@
 package base;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -14,7 +15,7 @@ public class Arquivo {
         try {
 
                 Files.write(caminho, textoEmByte);
-                
+
         } catch (Exception e) {}
     }
 
@@ -22,12 +23,12 @@ public class Arquivo {
         Path caminho = Paths.get("Usuarios.txt");
         try{
             byte[] texto = Files.readAllBytes(caminho);
-            String leitura = new String(texto);
+            // String leitura = new String(texto);
 
             JOptionPane.showMessageDialog(null, "Dados Gravados!");
 
         }catch(Exception e){
-            
+
         }
     }
 }
