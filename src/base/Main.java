@@ -7,7 +7,7 @@ public class Main {
 
         JOptionPane.showMessageDialog(null,"SOMATIVA DE JAVA!");
         Usuario usuario = new Usuario();
-        usuario.loginUsuario();
-        usuario.validacaoUsuario();
+        usuario.opcaoUsuario();
+        
     }
 }
