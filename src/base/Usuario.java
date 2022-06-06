@@ -1,11 +1,10 @@
 package base;
 import javax.swing.*;
 import java.util.ArrayList;
-
 import static java.nio.file.Files.write;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -41,16 +40,33 @@ public class Usuario {
         validacaoUsuario();
     }
 
-    public void validacaoUsuario() throws IOException{
-    
-        if(nome.equalsIgnoreCase("icaro") && senha.equalsIgnoreCase("1234")){
-            JOptionPane.showMessageDialog(null,"Login Efetuado com Sucesso!");
-            menu.menuUsuario();
-        }else{
-            JOptionPane.showMessageDialog(null,"Erro! Usuário ou senha Incorretos!");
-            loginUsuario();
-            validacaoUsuario();
+    public String[] verificarLinha(Path caminho){
+        String dados = "";
+        String[] array = new String[2];
+
+        try {
+            List<String> allLines = Files.readAllLines(Paths.get(String.valueOf(caminho)));
+            for (String line : allLines){
+                dados = line;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        array = dados.split(",");
+        return array;
+    }
+
+    public boolean validacaoUsuario() throws IOException{
+        Path caminho = Paths.get("Usuarios.txt");
+        String[] inputs = verificarLinha(caminho);
+
+        if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
+            JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
+            Menu.menuUsuario();
+            return true;
+        }
+        return false;
     }
 
     public void cadastrarUsuario() throws IOException{
@@ -65,5 +81,6 @@ public class Usuario {
 
         System.out.println(listaUser);
         JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso!");
+        menu.menuUsuario();
     }
 }

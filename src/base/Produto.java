@@ -11,12 +11,12 @@ import javax.swing.*;
 
 public class Produto {
     String nome;
-    int quantidade;
+    String quantidade;
     List listaProduto = new ArrayList();
 
     public void cadastrarProduto() throws IOException{
         this.nome = JOptionPane.showInputDialog(null,"Insira o nome do Produto que deseja cadastrar: ");
-        this.quantidade = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira a quantidade do Produto que deseja cadastrar: "));
+        this.quantidade = JOptionPane.showInputDialog(null,"Insira a quantidade do Produto que deseja cadastrar: ");
 
         listaProduto.add(nome);
         listaProduto.add(quantidade);
