@@ -10,14 +10,14 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Usuario {
+
     Menu menu = new Menu();
     List listaUser = new ArrayList();
-
     public String nome;
     public String senha;
 
     public void opcaoUsuario() throws IOException{
-        // Usuario usuarioCad = new Usuario();
+
         int op2 = Integer.parseInt(JOptionPane.showInputDialog(null,"Digite a Opção: \n(1) - Cadastrar Novo Usuário \n(2) - Fazer Login \n\n"));
         switch(op2) {
 
@@ -37,7 +37,7 @@ public class Usuario {
     public void loginUsuario() throws IOException{
         this.nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
         this.senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
-        validacaoUsuario();
+        this.validacaoUsuario();
     }
 
     public String[] verificarLinha(Path caminho){
@@ -60,6 +60,8 @@ public class Usuario {
     public boolean validacaoUsuario() throws IOException{
         Path caminho = Paths.get("Usuarios.txt");
         String[] inputs = verificarLinha(caminho);
+        System.out.println(inputs[1]);
+
 
         if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
             JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
