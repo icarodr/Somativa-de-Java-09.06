@@ -34,10 +34,21 @@ public class Usuario {
         }
     }
 
-    public void loginUsuario() throws IOException{
-        this.nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
-        this.senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
-        validacaoUsuario();
+    public boolean loginUsuario() throws IOException{
+
+        String nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
+        String senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
+
+        Path caminho = Paths.get("Usuarios.txt");
+        String[] inputs = verificarLinha(caminho);
+
+        if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
+            System.out.println("teste");
+            JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
+            Menu.menuUsuario();
+            return true;
+        }
+        return false;
     }
 
     public String[] verificarLinha(Path caminho){
@@ -55,18 +66,6 @@ public class Usuario {
 
         array = dados.split(",");
         return array;
-    }
-
-    public boolean validacaoUsuario() throws IOException{
-        Path caminho = Paths.get("Usuarios.txt");
-        String[] inputs = verificarLinha(caminho);
-
-        if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
-            JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
-            Menu.menuUsuario();
-            return true;
-        }
-        return false;
     }
 
     public void cadastrarUsuario() throws IOException{
