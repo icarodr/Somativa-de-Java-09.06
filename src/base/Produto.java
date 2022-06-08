@@ -25,15 +25,15 @@ public class Produto {
 
     }
     public void alteraQuantidade(){
-        // this.quantidade = quantidade;
+        this.quantidade = quantidade;
 
     }
     public void removerProdutos(){
-        // this.nome = nome;
+        this.nome = nome;
 
     }
     public void listarProdutos(){
-        // this.nome = nome;
-        // this.quantidade = quantidade;
+        this.nome = nome;
+        this.quantidade = quantidade;
     }
 }
