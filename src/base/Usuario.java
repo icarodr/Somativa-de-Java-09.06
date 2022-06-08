@@ -1,7 +1,7 @@
 package base;
+
 import javax.swing.*;
 import java.util.ArrayList;
-import static java.nio.file.Files.write;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -34,21 +34,10 @@ public class Usuario {
         }
     }
 
-    public boolean loginUsuario() throws IOException{
-
-        String nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
-        String senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
-
-        Path caminho = Paths.get("Usuarios.txt");
-        String[] inputs = verificarLinha(caminho);
-
-        if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
-            System.out.println("teste");
-            JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
-            Menu.menuUsuario();
-            return true;
-        }
-        return false;
+    public void loginUsuario() throws IOException{
+        this.nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
+        this.senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
+        validacaoUsuario();
     }
 
     public String[] verificarLinha(Path caminho){
@@ -68,18 +57,28 @@ public class Usuario {
         return array;
     }
 
-    public void cadastrarUsuario() throws IOException{
-
-        this.nome = JOptionPane.showInputDialog(null,"Insira o nome de Usuário: ");
-        this.senha = JOptionPane.showInputDialog(null,"Insira a senha: ");
-        listaUser.add(nome);
-        listaUser.add(senha);
-        
+    public boolean validacaoUsuario() throws IOException{
         Path caminho = Paths.get("Usuarios.txt");
-        write(caminho,listaUser, StandardCharsets.UTF_8);
+        String[] inputs = verificarLinha(caminho);
 
-        System.out.println(listaUser);
-        JOptionPane.showMessageDialog(null,"Usuário cadastrado com sucesso!");
+        if(Objects.equals(inputs[0], nome) && Objects.equals(inputs[1], senha)){
+            JOptionPane.showMessageDialog(null, "Usuário Logado com sucesso!");
+            Menu.menuUsuario();
+            return true;
+        }
+        return false;
+    }
+
+    public void cadastrarUsuario() throws IOException{
+        ArrayList<String> usuarios = new ArrayList<String>();
+
+        String nomeUser = JOptionPane.showInputDialog(null, "Insira o nome de Usuário: ", "Cadastro", JOptionPane.QUESTION_MESSAGE);
+        String senhaUser = JOptionPane.showInputDialog(null, "Insira a Senha: ","Cadastro", JOptionPane.QUESTION_MESSAGE);
+
+        usuarios.add(nomeUser + "," + senhaUser);
+
+        Path caminho = Paths.get("Usuarios.txt");
+        Files.write(caminho, usuarios, StandardCharsets.UTF_8);
         menu.menuUsuario();
     }
 }

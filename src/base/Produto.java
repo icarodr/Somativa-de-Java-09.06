@@ -10,13 +10,13 @@ import javax.swing.*;
 
 public class Produto {
     String nome;
-    String quantidade;
+    int quantidade;
+
     List listaProduto = new ArrayList();
 
     public void cadastrarProduto() throws IOException{
         this.nome = JOptionPane.showInputDialog(null,"Insira o nome do Produto que deseja cadastrar: ");
-        this.quantidade = JOptionPane.showInputDialog(null,"Insira a quantidade do Produto que deseja cadastrar: ");
-
+        this.quantidade = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira a quantidade do Produto que deseja cadastrar: "));
         listaProduto.add(nome);
         listaProduto.add(quantidade);
 
@@ -28,12 +28,19 @@ public class Produto {
         this.quantidade = quantidade;
 
     }
+
     public void removerProdutos(){
         this.nome = nome;
-
     }
+
     public void listarProdutos(){
         this.nome = nome;
         this.quantidade = quantidade;
+    }
+
+    public void verEstoque(){
+        this.nome = nome;
+        this.quantidade = quantidade;
+
     }
 }
