@@ -16,7 +16,7 @@ public class Menu {
                 produtoMenu.removerProdutos();
                 break;
             case 3:
-                produtoMenu.listarProdutos();
+//                produtoMenu.listarProdutos();
                 break;
             case 4:
                 produtoMenu.alteraQuantidade();
